@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
+    <meta name="description" content="Web site created using create-react-app" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -24,9 +22,94 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
-  </head>
-  <body>
+    <!-- <title>CGV Cinema</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+    <link href="%PUBLIC_URL%%PUBLIC_URL%/static/css/gozha-nav.css" rel="stylesheet" />
+    <link href="%PUBLIC_URL%%PUBLIC_URL%/static/css/external/jquery.selectbox.css" rel="stylesheet" />
+    <link href="%PUBLIC_URL%%PUBLIC_URL%/static/css/style.css" rel="stylesheet" />
+    <script src="%PUBLIC_URL%%PUBLIC_URL%/static/js/external/modernizr.custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+
+    <script>
+        function includeCSS(url) {
+            var head = document.getElementsByTagName('head')[0];
+            var link = document.createElement('link');
+            link.type = 'text/css';
+            link.rel = 'stylesheet';
+            link.href = url;
+            head.appendChild(link);
+        }
+
+        function includeJS(url) {
+            var head = document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = url;
+            head.appendChild(script);
+        }
+
+        if (window.location.href.includes('/admin')) {
+            window.document.title = 'Admin | Dashboard'
+            includeCSS("http://localhost:3000/static/plugins/fontawesome-free/css/all.min.css");
+            includeCSS("https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
+            includeCSS("http://localhost:3000/static/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css");
+            includeCSS("http://localhost:3000/static/plugins/icheck-bootstrap/icheck-bootstrap.min.css");
+            includeCSS("http://localhost:3000/static/plugins/jqvmap/jqvmap.min.css");
+            includeCSS("http://localhost:3000/static/dist/css/adminlte.min.css");
+            includeCSS("http://localhost:3000/static/plugins/overlayScrollbars/css/OverlayScrollbars.min.css");
+            includeCSS("http://localhost:3000/static/plugins/daterangepicker/daterangepicker.css");
+            includeCSS("http://localhost:3000/static/plugins/summernote/summernote-bs4.css");
+            includeCSS("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700");
+
+            includeJS('http://localhost:3000/static/plugins/jquery/jquery.min.js');
+
+        }
+        else {
+            window.document.title = 'CGV Cinema'
+            includeCSS('http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css');
+            includeCSS('http://fonts.googleapis.com/css?family=Roboto:400,700');
+            includeCSS('http://localhost:3000/static/css/gozha-nav.css');
+            includeCSS('http://localhost:3000/static/css/external/jquery.selectbox.css');
+            includeCSS('http://localhost:3000/static/css/style.css');
+            includeCSS('https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css');
+
+            includeJS('http://localhost:3000/static/js/external/modernizr.custom.js');
+            includeJS('https://code.jquery.com/jquery-3.5.1.min.js');
+            includeJS('https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js');
+            includeJS('https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js');
+        }
+
+
+    </script>
+
+
+
+    <!-- <title>Admin | Dashboard</title>
+
+    <link rel="stylesheet" href="%PUBLIC_URL%/static/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet"
+        href="%PUBLIC_URL%/static/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/static/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/static/plugins/jqvmap/jqvmap.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/static/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/static/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/static/plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/static/plugins/summernote/summernote-bs4.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    
+-->
+    <script src="%PUBLIC_URL%/static/plugins/jquery/jquery.min.js"></script>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -39,5 +122,39 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+
+    <script src="%PUBLIC_URL%%PUBLIC_URL%/static/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="%PUBLIC_URL%%PUBLIC_URL%/static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="%PUBLIC_URL%%PUBLIC_URL%/static/plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="%PUBLIC_URL%%PUBLIC_URL%/static/plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="%PUBLIC_URL%%PUBLIC_URL%/static/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="%PUBLIC_URL%%PUBLIC_URL%/static/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="%PUBLIC_URL%%PUBLIC_URL%/static/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="%PUBLIC_URL%/static/plugins/moment/moment.min.js"></script>
+    <script src="%PUBLIC_URL%/static/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script
+        src="%PUBLIC_URL%%PUBLIC_URL%/static/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="%PUBLIC_URL%%PUBLIC_URL%/static/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="%PUBLIC_URL%%PUBLIC_URL%/static/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="%PUBLIC_URL%%PUBLIC_URL%/static/dist/js/adminlte.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="%PUBLIC_URL%%PUBLIC_URL%/static/dist/js/pages/dashboard.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="%PUBLIC_URL%%PUBLIC_URL%/static/dist/js/demo.js"></script>
+</body>
+
 </html>

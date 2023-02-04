@@ -1,0 +1,50 @@
+#code {
+    width: auto;
+    height: 30px;
+}
+
+.avatar {
+    vertical-align: middle;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.btn-update-avatar {
+    text-align: center;
+}
+
+.avatar-container {
+    width: 150px;
+}
+
+h3 {
+    color: blue;
+}
+
+li label {
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+li input {
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 250px;
+}
+
+li select {
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 250px;
+}
+
+.hidden {
+    display: none;
+}
+.element {
+    margin-right: 20px;
+}
