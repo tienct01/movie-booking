@@ -24,17 +24,17 @@ function Amount() {
             <tbody>
               <tr className='active'>
                 <td>Thứ 2, 3, 4, 5, 6</td>
-                <td colSpan={2}>Đồng giá 60.000</td>
+                <td colSpan={2}>Đồng giá 60.000 | VIP: 70.000</td>
                 {/* <td rowSpan={2}>40.000</td> */}
               </tr>
               <tr className='active'>
                 <td>Thứ 7, CN</td>
-                <td>60.000</td>
-                <td>65.000</td>
+                <td>60.000 | VIP: 70.000</td>
+                <td>65.000 | VIP: 75.000</td>
               </tr>
               <tr className='active'>
                 <td>Ngày lễ</td>
-                <td colSpan={3}>70.000</td>
+                <td colSpan={3}>70.000 | VIP: 80.000</td>
               </tr>
             </tbody>
           </table>
@@ -56,17 +56,17 @@ function Amount() {
             <tbody>
               <tr className='active'>
                 <td>Thứ 2, 3, 4, 5, 6</td>
-                <td colSpan={2}>Đồng giá 70.000</td>
+                <td colSpan={2}>Đồng giá 70.000 | VIP: 80.000</td>
                 {/* <td rowSpan={2}>50.000</td> */}
               </tr>
               <tr className='active'>
                 <td>Thứ 7, CN</td>
-                <td>70.000</td>
-                <td>75.000</td>
+                <td>70.000 | VIP: 80.000</td>
+                <td>75.000 | VIP: 90.000</td>
               </tr>
               <tr className='active'>
                 <td>Ngày lễ</td>
-                <td colSpan={3}>80.000</td>
+                <td colSpan={3}>80.000 | VIP: 95.000</td>
               </tr>
             </tbody>
           </table>

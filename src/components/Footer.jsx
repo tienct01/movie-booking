@@ -96,7 +96,7 @@ function Footer() {
 
             <div className='clearfix'></div>
             <p className='copy'>
-              &copy; A.Movie, 2023. All rights reserved. Done by Trần Thiều
+              &copy; A.Movie, 2023. All rights reserved. Done by PLT TEAM
             </p>
           </div>
         </div>

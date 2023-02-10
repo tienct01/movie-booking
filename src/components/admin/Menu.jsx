@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 function Menu() {
-    const {currentUser}=useSelector(state=>state.auth)
+  const { currentUser } = useSelector(state => state.auth);
   return (
     <aside className='main-sidebar sidebar-dark-primary elevation-4'>
       {/* Brand Logo */}
@@ -22,7 +22,11 @@ function Menu() {
         <div className='user-panel mt-3 pb-3 mb-3 d-flex'>
           <div className='image'>
             <img
-              src='/static/dist/img/277706846_1680096792339378_5893102838573994793_n.jpg'
+              src={
+                currentUser?.avatar
+                  ? currentUser?.avatar
+                  : '/static/images/avatar.png'
+              }
               className='img-circle elevation-2'
               alt='User'
               style={{ opacity: '.8', width: '40px', height: '40px' }}
@@ -128,7 +132,7 @@ function Menu() {
                 <li className='nav-item'>
                   <Link to='/admin/reports' className='nav-link'>
                     <i className='far fa-circle nav-icon' />
-                    <p>Báo cáo số lượng vé</p>
+                    <p>Báo cáo doanh thu</p>
                   </Link>
                 </li>
               </ul>

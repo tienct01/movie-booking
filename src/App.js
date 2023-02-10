@@ -1,27 +1,28 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Amount from './pages/Amount';
-import Information from './pages/Information';
-import Error from './pages/Error';
-import MovieList from './pages/MovieList';
-import MovieDetail from './pages/MovieDetail';
-import Movie from './pages/admin/Movie';
-import CreateMovie from './pages/admin/CreateMovie';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Cinema from './pages/admin/Cinema';
 import CreateCinema from './pages/admin/CreateCinema';
-import Report from './pages/admin/Report';
-import Employee from './pages/admin/Employee';
 import CreateEmployee from './pages/admin/CreateEmployee';
-import Schedule from './pages/admin/Schedule';
+import CreateMovie from './pages/admin/CreateMovie';
 import CreateSchedule from './pages/admin/CreateSchedule';
-import { useSelector } from 'react-redux';
+import Employee from './pages/admin/Employee';
+import Movie from './pages/admin/Movie';
+import Report from './pages/admin/Report';
+import Schedule from './pages/admin/Schedule';
+import Amount from './pages/Amount';
+import TicketList from './pages/employee/TicketList';
+import Error from './pages/Error';
+import Information from './pages/Information';
+import Login from './pages/Login';
+import MovieDetail from './pages/MovieDetail';
+import MovieList from './pages/MovieList';
+import Register from './pages/Register';
 import Booking from './pages/user/Booking';
 import BookingChair from './pages/user/BookingChair';
 import History from './pages/user/History';
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
   const { currentUser } = useSelector(state => state.auth);
@@ -57,6 +58,7 @@ function App() {
           <Route path='/booking/:movieId' element={<Booking />} />
           <Route path='/booking-chair/:scheduleId' element={<BookingChair />} />
           <Route path='/history' element={<History />} />
+          <Route path='/tickets' element={<TicketList />} />
           <Route path='*' element={<Navigate to='/movies' replace />} />
         </Routes>
       </div>

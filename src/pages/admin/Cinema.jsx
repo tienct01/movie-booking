@@ -25,35 +25,37 @@ function Cinema() {
 
   const handleDelete = async () => {
     const result = await request.deleteCinema(currentCinema.id);
-    const response=result.data;
+    const response = result.data;
 
-    if(response.success)
-    {
-        toast.success(response.data.message, {
-            autoClose: 2000,
-          });
-          getCinemas();
+    if (response.success) {
+      toast.success(response.data.message, {
+        autoClose: 2000,
+      });
+      getCinemas();
     }
   };
 
-  const handleAddRoom = async (e) => {
+  const handleAddRoom = async e => {
     e.preventDefault();
-    if(!roomName.length>0){
-        toast.error('Tên phòng không được bỏ trống', {
-            autoClose: 2000,
-          });
-          return;
+    if (!roomName.length > 0) {
+      toast.error('Tên phòng không được bỏ trống', {
+        autoClose: 2000,
+      });
+      return;
     }
-    const result=await request.addRoom(roomName,currentCinema.id);
-    const response=result.data;
+    const result = await request.addRoom(roomName, currentCinema.id);
+    const response = result.data;
 
-    if(response.success)
-    {
-        setRoomName('');
-        getRoomList(currentCinema.id);
-        toast.success(response.data.message, {
-            autoClose: 2000,
-          });
+    if (response.success) {
+      setRoomName('');
+      getRoomList(currentCinema.id);
+      toast.success(response.data.message, {
+        autoClose: 2000,
+      });
+    } else {
+      toast.error(response.data.message, {
+        autoClose: 2000,
+      });
     }
   };
 
@@ -158,21 +160,26 @@ function Cinema() {
                         {/* <c:foreach var="room" items="${cinema.rooms}"> */}
                         {roomList.map(room => {
                           return (
-                            <li className='list-group-item'>{room.name}</li>
+                            <li key={room.id} className='list-group-item'>
+                              {room.name}
+                            </li>
                           );
                         })}
                         {/* </c:foreach> */}
                       </ul>
                       <br />
                       Thêm phòng
-                      <form action='/admin/rooms' method='post' onSubmit={handleAddRoom}>
+                      <form
+                        action='/admin/rooms'
+                        method='post'
+                        onSubmit={handleAddRoom}
+                      >
                         {/* <input
                           name='cinemaId'
                           defaultValue='${cinema.id}'
                           hidden
                         /> */}
                         <input
-                        
                           className='form-control mb-2'
                           placeholder='Tên'
                           type='text'
@@ -181,23 +188,20 @@ function Cinema() {
                           value={roomName}
                           onChange={e => setRoomName(e.target.value)}
                         />
-                        <button
-                          className='btn btn-primary'
-                          type='submit'
-                        >
+                        <button className='btn btn-primary' type='submit'>
                           Thêm
                         </button>
                       </form>
                     </div>
                     <div className='col-sm-8'>
                       <div id='detail-cinema-${cinema.id}'>
-                        <h2>{currentCinema.name}</h2>
+                        <h2>{currentCinema?.name}</h2>
                         <br />
-                        <label>Thuộc thành phố:</label> {currentCinema.city}
+                        <label>Thuộc thành phố:</label> {currentCinema?.city}
                         <br />
                         <br />
                         <Link
-                          to={`/admin/cinemas/${currentCinema.id}`}
+                          to={`/admin/cinemas/${currentCinema?.id}`}
                           role='button'
                           className='btn-update-cinema btn btn-primary mr-2'
                         >

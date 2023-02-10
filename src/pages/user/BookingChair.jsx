@@ -65,7 +65,7 @@ function BookingChair() {
             window.location.reload();
           },1000)
       }
-  };
+  };    
   useEffect(() => {
     const money = selectedChairs
       .map(s => {
@@ -105,7 +105,7 @@ function BookingChair() {
             </div>
             <div
               style={{
-                width: '500px',
+                width: '600px',
                 margin: '0 auto',
               }}
             >
@@ -115,7 +115,8 @@ function BookingChair() {
                     onClick={() => handleChair(chair.id)}
                     style={{
                       display: 'inline-block',
-                      width: '9%',
+                      width: '7%',
+                      margin:'5px'
                     }}
                     key={chair.id}
                     href='#'
@@ -159,6 +160,7 @@ function BookingChair() {
             <br />
             <button disabled className='btn btn-primary note' /> Ghế thường
             <button disabled className='btn btn-success note' /> Ghế vip
+            <button disabled className='btn btn-danger note' /> Ghế đang chọn
             <button disabled className='btn btn-warning note' /> Ghế đã đặt
           </div>
           <div className='col-sm-12'>

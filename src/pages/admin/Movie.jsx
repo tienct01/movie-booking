@@ -41,10 +41,10 @@ function Movie() {
   }, []);
 
   useEffect(() => {
-    if (currentMovie.id) {
-      getCategories(currentMovie.id);
+    if (currentMovie?.id) {
+      getCategories(currentMovie?.id);
     }
-  }, [currentMovie.id]);
+  }, [currentMovie?.id]);
 
   return (
     <div className='wrapper'>

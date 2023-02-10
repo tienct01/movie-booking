@@ -4,10 +4,10 @@ import { toast } from 'react-toastify';
 import request from '../../api/request';
 import Menu from '../../components/admin/Menu';
 import Nav from '../../components/admin/Nav';
-import {validateEmail,validatePassword} from '../../utils/regex'
+import { validateEmail, validatePassword } from '../../utils/regex';
 
 function CreateEmployee() {
-    const navigate=useNavigate();
+  const navigate = useNavigate();
   const params = useParams();
   const { empId } = params;
   const [empData, setEmpData] = useState({
@@ -25,55 +25,53 @@ function CreateEmployee() {
   const handleSubmit = async e => {
     e.preventDefault();
     console.log('empData', empData);
-    if(!empData.fullName.length>0)
-    {
-        toast.error('Họ tên không được bỏ trống', {
-            autoClose: 2000,
-          });
-          return;
+    if (!empData.fullName.length > 0) {
+      toast.error('Họ tên không được bỏ trống', {
+        autoClose: 2000,
+      });
+      return;
     }
-    if(!validateEmail(empData.email))
-    {
-        toast.error('Email không hợp lệ', {
-            autoClose: 2000,
-          });
-          return;
+    if (!validateEmail(empData.email)) {
+      toast.error('Email không hợp lệ', {
+        autoClose: 2000,
+      });
+      return;
     }
-    if(!validatePassword(empData.password))
-    {
-        toast.error('Mật khẩu phải gồm ít nhất 6 kí tự', {
-            autoClose: 2000,
-          });
-          return;
+    if (!validatePassword(empData.password)) {
+      toast.error('Mật khẩu phải gồm ít nhất 6 kí tự', {
+        autoClose: 2000,
+      });
+      return;
     }
-    if(!empData.address.length>0)
-    {
-        toast.error('Địa chỉ không được bỏ trống', {
-            autoClose: 2000,
-          });
-          return;
+    if (!empData.address.length > 0) {
+      toast.error('Địa chỉ không được bỏ trống', {
+        autoClose: 2000,
+      });
+      return;
     }
     if (empId) {
       const newEmpData = { id: empId, ...empData };
       const result = await request.updateEmp(newEmpData);
-      const response=result.data
-      if(response.success)
-      {
+      const response = result.data;
+      if (response.success) {
         toast.success(response.data.message, {
-            autoClose: 2000,
-          });
-          navigate('/admin/employees');    
+          autoClose: 2000,
+        });
+        navigate('/admin/employees');
       }
       console.log('update', result);
     } else {
       const result = await request.createEmp(empData);
-      const response=result.data
-      if(response.success)
-      {
+      const response = result.data;
+      if (response.success) {
         toast.success(response.data.message, {
-            autoClose: 2000,
-          });
-          navigate('/admin/employees');    
+          autoClose: 2000,
+        });
+        navigate('/admin/employees');
+      } else {
+        toast.error(response.data.message, {
+          autoClose: 2000,
+        });
       }
       console.log('create', result);
     }
@@ -167,6 +165,7 @@ function CreateEmployee() {
                     type='email'
                     className='form-control'
                     path='email'
+                    disabled={empId ? true : false}
                     value={empData.email}
                     onChange={e => handleChange('email', e.target.value)}
                   />

@@ -137,16 +137,33 @@ const request = {
       params: { date_type, time_type, format_id },
     });
   },
-  getReport( fromDate, toDate, movieId ) {
+  getReport(fromDate, toDate, movieId) {
     return axiosClient.get(`/schedules/report`, {
       params: { fromDate, toDate, movieId },
+    });
+  },
+  getTicketByCode(code) {
+    return axiosClient.get(`/schedules/ticketByCode`, {
+      params: { code },
+    });
+  },
+  receiveTicket(code) {
+    return axiosClient.post(`/schedules/receiveTicket`, {
+      code,
     });
   },
   login(user) {
     return axiosClient.post('/auth/login', user);
   },
+
+  register(user) {
+    return axiosClient.post('/auth/register', user);
+  },
   getMyInfo() {
     return axiosClient.get('/auth/information');
+  },
+  updateMyInfo(user) {
+    return axiosClient.put('/auth/information',user);
   },
   getMyTickets() {
     return axiosClient.get('/auth/myTickets');

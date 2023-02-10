@@ -14,7 +14,6 @@ function Navbar() {
       dispatch(getMeAsync());
       console.log('call api');
     }
-    
   }, [dispatch]);
 
   return (
@@ -53,9 +52,9 @@ function Navbar() {
             </li> */}
             {currentUser?.role === 'ADMIN' && (
               <li>
-              <span className='sub-nav-toggle plus'></span>
-              <a href='/admin/movies'>Quản lý</a>
-            </li>
+                <span className='sub-nav-toggle plus'></span>
+                <a href='/admin/movies'>Quản lý</a>
+              </li>
             )}
             {currentUser && (
               <li>
@@ -72,7 +71,7 @@ function Navbar() {
             {currentUser?.role === 'EMP' && (
               <li>
                 <span className='sub-nav-toggle plus'></span>
-                <Link to='/tickets'>Danh sách vé</Link>
+                <Link to='/tickets'>In vé</Link>
               </li>
             )}
           </ul>
@@ -88,11 +87,20 @@ function Navbar() {
             </Link>
           </div>
         ) : (
-          <div className='control-panel'>
-            <Link to='/login' className='btn btn--sign'>
-              Đăng nhập
-            </Link>
-          </div>
+          <>
+            <div className='control-panel'>
+              <Link to='/login' className='btn btn--sign'>
+                Đăng nhập
+              </Link>
+            </div>
+            <div className='control-panel' style={{
+                right:'150px'
+            }}>
+              <Link to='/register' className='btn btn--sign'>
+                Đăng ký
+              </Link>
+            </div>
+          </>
         )}
       </div>
     </header>

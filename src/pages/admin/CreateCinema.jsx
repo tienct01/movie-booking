@@ -6,7 +6,7 @@ import Menu from '../../components/admin/Menu';
 import Nav from '../../components/admin/Nav';
 
 function CreateCinema() {
-    const navigate=useNavigate();
+  const navigate = useNavigate();
   const params = useParams();
   const { cinemaId } = params;
   const [cityList, setCityList] = useState([]);
@@ -36,37 +36,43 @@ function CreateCinema() {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    if(!cinemaData.name.length>0){
-        toast.error('Tên rạp không được bỏ trống', {
-            autoClose: 2000,
-          });
-          return;
+    if (!cinemaData.name.length > 0) {
+      toast.error('Tên rạp không được bỏ trống', {
+        autoClose: 2000,
+      });
+      return;
     }
     if (cinemaId) {
       const newCinemaData = { id: cinemaId, ...cinemaData };
       const result = await request.updateCinema(newCinemaData);
-      const response=result.data
-      if(response.success)
-      {
+      const response = result.data;
+      if (response.success) {
         toast.success(response.data.message, {
-            autoClose: 2000,
-          });
-          navigate('/admin/cinemas');    
+          autoClose: 2000,
+        });
+        navigate('/admin/cinemas');
+      }
+      else {
+        toast.error(response.data.message, {
+          autoClose: 2000,
+        });
       }
       console.log('update', result);
     } else {
       const result = await request.createCinema(cinemaData);
-      const response=result.data
-      if(response.success)
-      {
+      const response = result.data;
+      if (response.success) {
         toast.success(response.data.message, {
-            autoClose: 2000,
-          });
-          navigate('/admin/cinemas');    
+          autoClose: 2000,
+        });
+        navigate('/admin/cinemas');
+      } else {
+        toast.error(response.data.message, {
+          autoClose: 2000,
+        });
       }
       console.log('create', result);
     }
-    
   };
 
   //   useEffect(() => {
@@ -77,12 +83,11 @@ function CreateCinema() {
     getCities();
     if (cinemaId) {
       getCinemaInfo(cinemaId);
-    }
-    else{
-        setCinemaData({
-            name: '',
-            cityId: 1,
-          })
+    } else {
+      setCinemaData({
+        name: '',
+        cityId: 1,
+      });
     }
   }, [cinemaId]);
   return (

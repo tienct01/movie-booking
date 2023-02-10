@@ -27,7 +27,7 @@ function History() {
         })
         .filter(i => i.id === t)
         .reduce((prev, cur) => {
-          const { created_date, id, movie, cinema, premiere, room, value } =
+          const { created_date, id, movie, cinema, premiere, room, value,code } =
             prev;
           return {
             created_date,
@@ -37,6 +37,7 @@ function History() {
             room,
             cinema,
             value,
+            code,
             position: [...prev.position, ...cur.position],
           };
         });
@@ -65,13 +66,13 @@ function History() {
                 >{ticket.movie}</div>
                 <div className='panel-body'>
                   <div>
-                    <h4>Mã code: {ticket.id}</h4>
+                    <h4>Mã code: {ticket.code.toUpperCase()}</h4>
                   </div>
                   <div>
-                    <h4>Ngày đặt: {moment(ticket.created_date).format('MM-DD-YYYY')}</h4>
+                    <h4>Ngày đặt: {moment(ticket.created_date).format('DD-MM-YYYY')}</h4>
                   </div>
                   <div>
-                    <h4>Ngày chiếu: {moment(ticket.premiere).format('HH:mm MM-DD-YYYY')}</h4>
+                    <h4>Ngày chiếu: {moment(ticket.premiere).format('HH:mm DD-MM-YYYY')}</h4>
                   </div>
                   <div>
                     <h4>Rạp: {ticket.cinema}</h4>
