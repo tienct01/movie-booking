@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosClient = axios.create({
-  baseURL: 'https://movie-server-jet.vercel.app',
+  baseURL: `http://${process.env.REACT_APP_API_URL}`,
 });
 axiosClient.interceptors.request.use(
   config => {
