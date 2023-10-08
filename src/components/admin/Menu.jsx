@@ -160,6 +160,30 @@ function Menu() {
                 </li>
               </ul>
             </li>
+            <li className='nav-item has-treeview' id='menu-movie'>
+              <Link to='#' className='nav-link active'>
+                <i className='nav-icon fas fa-tachometer-alt' />
+                <p>
+                  Quản lý sản phẩm
+                  <i className='right fas fa-angle-left' />
+                </p>
+              </Link>{' '}
+              {/* trong 1 <li> co a va ul */}
+              <ul className='nav nav-treeview'>
+                <li className='nav-item'>
+                  <Link to='/admin/products' className='nav-link '>
+                    <i className='far fa-circle nav-icon' />
+                    <p>Danh sách các sản phẩm</p>
+                  </Link>
+                </li>
+                <li className='nav-item'>
+                  <Link to='/admin/products/create' className='nav-link'>
+                    <i className='far fa-circle nav-icon' />
+                    <p>Thêm mới sản phẩm</p>
+                  </Link>
+                </li>
+              </ul>
+            </li>
           </ul>
         </nav>
         {/* /.sidebar-menu */}

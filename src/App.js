@@ -7,9 +7,11 @@ import Cinema from './pages/admin/Cinema';
 import CreateCinema from './pages/admin/CreateCinema';
 import CreateEmployee from './pages/admin/CreateEmployee';
 import CreateMovie from './pages/admin/CreateMovie';
+import CreateProduct from './pages/admin/CreateProduct';
 import CreateSchedule from './pages/admin/CreateSchedule';
 import Employee from './pages/admin/Employee';
 import Movie from './pages/admin/Movie';
+import Product from './pages/admin/Product';
 import Report from './pages/admin/Report';
 import Schedule from './pages/admin/Schedule';
 import Amount from './pages/Amount';
@@ -48,6 +50,9 @@ function App() {
           <Route path='/admin/employees' element={<Employee />} />
           <Route path='/admin/employees/create' element={<CreateEmployee />} />
           <Route path='/admin/employees/:empId' element={<CreateEmployee />} />
+          <Route path='/admin/products' element={<Product />} />
+          <Route path='/admin/products/create' element={<CreateProduct />} />
+          <Route path='/admin/products/:productId' element={<CreateProduct />} />
           <Route path='/admin/schedules' element={<Schedule />} />
           <Route path='/admin/schedules/create' element={<CreateSchedule />} />
           <Route

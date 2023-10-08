@@ -7,11 +7,12 @@ import Navbar from '../../components/Navbar';
 
 function BookingChair() {
   const params = useParams();
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const { scheduleId } = params;
   const [chairs, setChairs] = useState([]);
   const [chairBook, setChairBook] = useState([]);
   const [selectedChairs, setSelectedChairs] = useState([]);
+  console.log('selectedChairs', selectedChairs);
   const [amount, setAmount] = useState([]);
   const [totalMoney, setTotalMoney] = useState([0]);
   console.log('totalMoney', totalMoney);
@@ -53,19 +54,18 @@ function BookingChair() {
     const result = await request.bookingChairs({
       scheduleId,
       selectedChairs,
-      totalMoney
+      totalMoney,
     });
-    const response=result.data
-      if(response.success)
-      {
-        toast.success(response.data.message, {
-            autoClose: 2000,
-          });
-          setTimeout(()=>{
-            window.location.reload();
-          },1000)
-      }
-  };    
+    const response = result.data;
+    if (response.success) {
+      toast.success(response.data.message, {
+        autoClose: 2000,
+      });
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    }
+  };
   useEffect(() => {
     const money = selectedChairs
       .map(s => {
@@ -116,7 +116,7 @@ function BookingChair() {
                     style={{
                       display: 'inline-block',
                       width: '7%',
-                      margin:'5px'
+                      margin: '5px',
                     }}
                     key={chair.id}
                     href='#'

@@ -18,17 +18,16 @@ function Schedule() {
     setCurrentSchedule(resultSchedule.data[0].id);
   };
 
-  const handleDelete=async()=>{
-    const result=await request.deleteSchedule(currentSchedule.id);
-    const response=result.data
-      if(response.success)
-      {
-        toast.success(response.data.message, {
-            autoClose: 2000,
-          });
-          getScheduleList();
-      }
-  }
+  const handleDelete = async () => {
+    const result = await request.deleteSchedule(currentSchedule.id);
+    const response = result.data;
+    if (response.success) {
+      toast.success(response.data.message, {
+        autoClose: 2000,
+      });
+      getScheduleList();
+    }
+  };
   useEffect(() => {
     getScheduleList();
   }, []);
@@ -122,18 +121,10 @@ function Schedule() {
                 {scheduleList.map(schedule => {
                   return (
                     <tr key={schedule.id}>
-                      <td>
-                        {schedule.city}
-                      </td>
-                      <td>
-                        {schedule.cinema}
-                      </td>
-                      <td>
-                        {schedule.room}
-                      </td>
-                      <td>
-                        {schedule.movie}
-                      </td>
+                      <td>{schedule.city}</td>
+                      <td>{schedule.cinema}</td>
+                      <td>{schedule.room}</td>
+                      <td>{schedule.movie}</td>
                       <td>
                         {moment(schedule.premiere).format('HH:mm DD-MM-YYYY')}
                       </td>
@@ -149,9 +140,9 @@ function Schedule() {
                           type='button'
                           data-toggle='modal'
                           data-target='#exampleModal'
-                        //   data-id='${roomMovieSchedule.id}'
+                          //   data-id='${roomMovieSchedule.id}'
                           className='btn btn-danger room-movie-schedule-delete-action'
-                          onClick={()=>setCurrentSchedule(schedule)}
+                          onClick={() => setCurrentSchedule(schedule)}
                         >
                           Xóa
                         </button>

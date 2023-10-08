@@ -168,5 +168,24 @@ const request = {
   getMyTickets() {
     return axiosClient.get('/auth/myTickets');
   },
+  getProducts() {
+    return axiosClient.get('/products');
+  },
+  createProduct(product) {
+    return axiosClient.post('/products', product);
+  },
+  getProductById(productId) {
+    return axiosClient.get(`/product/${productId}`);
+  },
+  updateProduct(product) {
+    return axiosClient.put('/products', product);
+  },
+  deleteProduct(productId) {
+    return axiosClient.delete('/products', {
+      data: {
+        id: productId,
+      },
+    });
+  },
 };
 export default request;
